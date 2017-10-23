@@ -2,10 +2,8 @@ let allPerm = (str) => {
     let perms = []
     let perm = ''
     
-   
     let permutate = (word, holder) => {
       if (!word) {
-        console.log(holder);
         perms.push(holder);
       }
       for (let i = 0; i < word.length; i++) {
