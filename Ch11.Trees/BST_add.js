@@ -11,26 +11,26 @@ function Node(value) {
 }
 
 BST.prototype.add = function(value) {
-  let current = this.root;
   if (this.root === null) {
-    this.root = new Node(value);
+     this.root = new Node(value);
     return;
   }
   else {
-    let node = new Node(value);
+    let current = this.root;
     while(current) {
-      if (current.value < node.value){
+      if (value < current.value) {
+        console.log('less than')
         if(current.left === null) {
-          current.left = node;
+          current.left = new Node(value);
           return;
         }
         else {
           this.left = current;
         }
       }
-      else if (current.value > node.value) {
+      else if (value > current.value) {
         if (current.right === null) {
-          current.right = node;
+          current.right = new Node(value);
           return;
         }
         else {
@@ -47,4 +47,6 @@ BST.prototype.add = function(value) {
 let myBst = new BST();
 myBst.add(5);
 myBst.add(7);
-console.log(myBst.root);
+myBst.add(9);
+myBst.add(3);
+console.log(myBst);
